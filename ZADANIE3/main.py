@@ -15,19 +15,32 @@ def draw_scatter_plot():
     4) Zwróć obiekt Figure.
     """
     np.random.seed(123)
+
     
     # utwórz x, y
-    # x = ...
-    # y = ...
+    x =  np.arange(10)
+    y = np.random.rand(10) * 10
     
     # fig, ax = 
+    fig, ax = plt.subplots()
+
+    # print(isinstance(fig, plt.Figure)
     
     # ax.scatter( ... )
-    
+    ax.scatter(x, y, color='blue', label = "dane punktowe")
+
+
     # label dla x, y, title, legend
-    
+    ax.set_xlabel('X axis')
+    ax.set_ylabel('Y axis')
+    ax.set_title('Wykres punktowy')
+    ax.legend()
+
+    ax.set_xticks(np.arange(0, 12, 1))
+    ax.set_yticks(np.arange(0, 13, 1))
+
     # return rysunek
-    pass
+    return fig
 
 if __name__ == '__main__':
     fig = draw_scatter_plot()
