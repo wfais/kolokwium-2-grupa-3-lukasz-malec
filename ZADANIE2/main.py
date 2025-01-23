@@ -9,18 +9,36 @@
 from abc import ABC, abstractmethod
 
 # Zdefiniuj klasę Animal dziedziczącą po ABC z metodą abstrakcyjną make_sound
+class Animal(ABC):
 
+    @abstractmethod
+    def make_sound(self):
+        pass
 
 # Zdefiniuj klasę LandAnimal dziedziczącą po Animal
 #       - implementuj metodę make_sound
 
+class LandAnimal(Animal):
+    def make_sound(self):
+        return f"LandAnimal sound"
+
 
 # Zdefiniuj klasę WaterAnimal dziedziczącą po Animal
 #       - implementuj metodę make_sound
+class WaterAnimal(Animal):
+    def make_sound(self):
+        return f"WaterAnimal sound"
 
 
 # Zdefiniuj klasę Amphibian dziedziczącą wielokrotnie
 #       - w metodzie make_sound wywołaj LandAnimal.make_sound(self) oraz WaterAnimal.make_sound(self)
+
+class Amphibian(LandAnimal, WaterAnimal):
+    def make_sound(self):
+        land  = LandAnimal.make_sound(self)
+        water = WaterAnimal.make_sound(self)
+        return f"{land} & {water}"
+
 
 
 if __name__ == '__main__':
